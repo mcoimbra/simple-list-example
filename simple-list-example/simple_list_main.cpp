@@ -7,6 +7,15 @@ int main()
 {
 	std::cout << "Sample program to demonstrate a simple list in use." << std::endl;
 
+
+	blitzkoder::simple_list_head *very_small_list = blitzkoder::simple_list_create_empty();
+	blitzkoder::simple_list_append(very_small_list, 1);
+	blitzkoder::simple_list_append(very_small_list, 2);
+	blitzkoder::simple_list_append(very_small_list, 3);
+
+	int small_sum = blitzkoder::simple_list_sum(very_small_list);
+	std::cout << "The sum of the very small list was: " << small_sum << std::endl;
+
 	blitzkoder::simple_list_head *list_head = blitzkoder::simple_list_create_empty();
 
 	for(int i = 0; i < 20; i++)

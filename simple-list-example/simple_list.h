@@ -11,6 +11,7 @@ namespace blitzkoder
 {
 	struct simple_list_head {
 		struct simple_list_item *first;
+		unsigned int number_of_elements;
 	};
 
 	struct simple_list_item {

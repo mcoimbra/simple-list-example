@@ -34,14 +34,37 @@ namespace blitzkoder
 	simple_list_head* simple_list_create_empty() {
 		simple_list_head* new_list = new simple_list_head;
 		new_list->first = nullptr;
+		new_list->number_of_elements = 0;
+
 		return new_list;
 	}
 
 	void simple_list_append(simple_list_head* h, int number) {
+
+		// Allocate memory to represent a simple_list_item.
 		simple_list_item* new_element = new simple_list_item;
+
+		// Set its value and set it to have an nonexistent arrow.
 		new_element->val = number;
 		new_element->next = nullptr;
-		simple_list_append(h, new_element);
+		
+		// Initial case for an empty list, 'e' is going to be the first element.
+		if (h->first == nullptr) {
+			h->first = new_element;
+			return;
+		}
+
+		// If the list wasn't empty, iterate until we reach the last element of the list.
+		simple_list_item *ep = h->first;
+		for (; ep->next != nullptr; ep = ep->next);
+
+		// Assign the new element 'e' to the end. The list element `ep` now has an arrow pointing to the new element.
+		ep->next = new_element;
+
+
+		h->number_of_elements++;
+
+
 	}
 
 
